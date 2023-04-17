@@ -1,0 +1,53 @@
+include layouts/header.pug
+.container-scroller
+  // partial:../../partials/_navbar.html
+  include layouts/navbar.pug
+  // partial
+  .container-fluid.page-body-wrapper
+    // partial:../../partials/_sidebar.html
+    include layouts/sidebar.pug
+    // partial
+    .main-panel
+      .content-wrapper
+        .page-header
+          h3.page-title  Orders Table 
+          nav(aria-label='breadcrumb')
+            ol.breadcrumb
+            li.breadcrumb-item.active(aria-current='page') Orders table
+        .row
+          .col-lg-12.grid-margin.stretch-card
+            .card
+              .card-body
+                h4.card-title Orders Table
+                table.table
+                  thead
+                    tr
+                      th Order id
+                      th User
+                      th Payment_mode                      
+                      th Items
+                      th Delivery
+                      th Status
+                  tbody
+                  if allorders
+                  each x in allorders
+                    tr
+                      td
+                        a(href='')=x._id
+                      td=x.userid
+                      td                        
+                        | cod
+                      td
+                        a(href="/orders")
+                          button.btn.btn-gradient-primary.mr-2 click
+                      td
+                        label.badge.badge-warning=x.delivery
+                      td started
+      // content-wrapper ends
+      // partial:../../partials/_footer.html
+      include layouts/footer.pug
+      // partial
+    // main-panel ends
+  // page-body-wrapper ends
+// container-scroller
+include layouts/plugins.pug

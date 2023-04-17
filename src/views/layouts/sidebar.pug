@@ -1,0 +1,44 @@
+nav#sidebar.sidebar.sidebar-offcanvas
+  ul.nav
+    li.nav-item.nav-profile
+      a.nav-link(href='#')
+        .nav-profile-image
+          img(src='/assets/images/faces/face1.jpg' alt='profile')
+          span.login-status.online
+          // change to offline or busy as needed
+        .nav-profile-text.d-flex.flex-column
+          span.font-weight-bold.mb-2 Admin
+          span.text-secondary.text-small Taaza Pickle
+        i.mdi.mdi-bookmark-check.text-success.nav-profile-badge
+    li.nav-item
+      a.nav-link(href='/')
+        span.menu-title Dashboard
+        i.mdi.mdi-home.menu-icon
+    li.nav-item
+      a.nav-link(href="/products")
+        span.menu-title Products Table
+        i.mdi.mdi-table-large.menu-icon
+    li.nav-item
+      a.nav-link(href="/orders")
+        span.menu-title Orders
+        i.mdi.mdi-format-list-bulleted.menu-icon
+    li.nav-item
+      a.nav-link(href="/users")
+        span.menu-title Users
+        i.mdi.mdi-contacts.menu-icon
+    li.nav-item
+      a.nav-link(href="/category")
+        span.menu-title Categories Table
+        i.mdi.mdi-contacts.menu-icon    
+    li.nav-item.sidebar-actions
+      span.nav-link
+        .border-bottom
+          h6.font-weight-normal.mb-3 Product
+        a(href="/products/add_products" style='text-decoration: none;')
+          button.btn.btn-block.btn-lg.btn-gradient-primary.mt-4 + Add a product        
+    li.nav-item.sidebar-actions
+      span.nav-link
+        .border-bottom
+          h6.font-weight-normal.mb-3 categories
+        a(href="/category/add_category" style='text-decoration: none;')
+          button.btn.btn-block.btn-lg.btn-gradient-primary.mt-4 + Add a category        

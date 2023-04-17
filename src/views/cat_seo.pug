@@ -1,0 +1,62 @@
+include layouts/header.pug
+style(type='text/css').
+  .error{
+  color: red;
+  }
+.container-scroller
+  // partial:../../partials/_navbar.html
+  include layouts/navbar.pug
+  // partial
+  .container-fluid.page-body-wrapper
+    // partial:../../partials/_sidebar.html
+    include layouts/sidebar.pug
+    // partial
+    .main-panel
+      .content-wrapper
+        .page-header
+          h3.page-title  Add seo to Category
+          nav(aria-label='breadcrumb')
+            ol.breadcrumb
+              li.breadcrumb-item
+                a(href="/products") Category Table
+              li.breadcrumb-item.active(aria-current='page') seo
+        .row
+          .col-12.grid-margin.stretch-card
+            .card
+              .card-body
+                // <h4 class="card-title">Basic form elements</h4>
+                p.card-description(align='center' style='color:white;background-color: green;') #{message}
+                each val in errors
+                  p.card-description(align='center' style='color:white;background-color: red;') #{val.msg} 
+                // <form class="forms-sample">
+                form.forms-sample(method='post' action=(data == null) ? '/category/seo/' + category_id : '/category/seo/edit/' + category_id) 
+                  if data                 
+                  .form-group
+                    label(for='exampleInputName1') Meta Title
+                    input#meta_title.form-control(type='text' name='meta_title' placeholder='Title' value=(data != null) ? data.meta_title : '')
+                    span.error
+                  .form-group
+                    label(for='exampleInputName1') Meta Keywords
+                    input#meta_keywords.form-control(type='text' name='meta_keywords' placeholder='Title' value=(data != null) ? data.meta_keywords : '')
+                    span.error
+                  .form-group
+                    label(for='exampleTextarea1') Meta Description
+                    textarea#meta_description.form-control(name='meta_description' rows='4' placeholder="meta description")=(data != null) ? data.meta_description : ''
+                    span.error
+                  .form-group
+                    label(for='exampleInputName1') Footer Title
+                    input#footer_title.form-control(type='text' name='footer_title' placeholder='Title' value=(data != null) ? data.footer_title : '')
+                    span.error
+                  .form-group
+                    label(for='exampleTextarea1') Footer Description
+                    textarea#footer_description.form-control(name='footer_description' rows='4' placeholder='footer description')=(data != null) ? data.footer_description : ''
+                    span.error
+                  button.btn.btn-gradient-primary.mr-2(type='submit') Submit
+                  button.btn.btn-light Cancel
+      // content-wrapper ends
+      // partial:../../partials/_footer.html
+      include layouts/footer.pug
+      // partial
+    // main-panel ends
+  // page-body-wrapper ends
+// container-scroller

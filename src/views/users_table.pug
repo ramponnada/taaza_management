@@ -1,0 +1,46 @@
+include layouts/header.pug
+.container-scroller
+  // partial:../../partials/_navbar.html
+  include layouts/navbar.pug
+  // partial
+  .container-fluid.page-body-wrapper
+    // partial:../../partials/_sidebar.html
+    include layouts/sidebar.pug
+    // partial
+    .main-panel
+      .content-wrapper
+        .page-header
+          h3.page-title  Users 
+          nav(aria-label='breadcrumb')
+            ol.breadcrumb
+              li.breadcrumb-item.active(aria-current='page') Users table
+        .row
+          .col-lg-12.grid-margin.stretch-card
+            .card
+              .card-body
+                h4.card-title Users Table
+                table.table
+                  thead
+                    tr
+                      th name
+                      th email
+                      th reference token
+                      th mobile
+                  tbody
+                  if allusers
+                  each x in allusers
+                    tr
+                      td
+                        a(href='')=x.first_name
+                      td=x.email
+                      td
+                        label.badge.badge-warning=x._id
+                      td=x.address.phone_number
+      // content-wrapper ends
+      // partial:../../partials/_footer.html
+      include layouts/footer.pug
+      // partial
+    // main-panel ends
+  // page-body-wrapper ends
+// container-scroller
+include layouts/plugins.pug

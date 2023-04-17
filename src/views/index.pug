@@ -1,0 +1,250 @@
+include layouts/header.pug
+.container-scroller  
+  include layouts/navbar.pug
+  // partial
+  .container-fluid.page-body-wrapper
+    // partial:partials/_sidebar.html    
+    include layouts/sidebar.pug
+    // partial
+    .main-panel
+      .content-wrapper        
+        .page-header
+          h3.page-title
+            span.page-title-icon.bg-gradient-primary.text-white.mr-2
+              i.mdi.mdi-home
+            |  Dashboard
+          nav(aria-label='breadcrumb')
+            ul.breadcrumb
+              li.breadcrumb-item.active(aria-current='page')
+                span
+                | Overview 
+                i.mdi.mdi-alert-circle-outline.icon-sm.text-primary.align-middle
+        .row
+          .col-md-4.stretch-card.grid-margin
+            .card.bg-gradient-danger.card-img-holder.text-white
+              .card-body
+                img.card-img-absolute(src='/assets/images/dashboard/circle.svg', alt='circle-image')
+                h4.font-weight-normal.mb-3
+                  | Weekly Sales 
+                  i.mdi.mdi-chart-line.mdi-24px.float-right
+                h2.mb-5 $ 15,0000
+                h6.card-text Increased by 60%
+          .col-md-4.stretch-card.grid-margin
+            .card.bg-gradient-info.card-img-holder.text-white
+              .card-body
+                img.card-img-absolute(src='/assets/images/dashboard/circle.svg', alt='circle-image')
+                h4.font-weight-normal.mb-3
+                  | Weekly Orders 
+                  i.mdi.mdi-bookmark-outline.mdi-24px.float-right
+                h2.mb-5 45,6334
+                h6.card-text Decreased by 10%
+          .col-md-4.stretch-card.grid-margin
+            .card.bg-gradient-success.card-img-holder.text-white
+              .card-body
+                img.card-img-absolute(src='/assets/images/dashboard/circle.svg', alt='circle-image')
+                h4.font-weight-normal.mb-3
+                  | Visitors Online 
+                  i.mdi.mdi-diamond.mdi-24px.float-right
+                h2.mb-5 95,5741
+                h6.card-text Increased by 5%
+        .row
+          .col-md-7.grid-margin.stretch-card
+            .card
+              .card-body
+                .clearfix
+                  h4.card-title.float-left Visit And Sales Statistics
+                  #visit-sale-chart-legend.rounded-legend.legend-horizontal.legend-top-right.float-right
+                canvas#visit-sale-chart.mt-4
+          .col-md-5.grid-margin.stretch-card
+            .card
+              .card-body
+                h4.card-title Traffic Sources
+                canvas#traffic-chart
+                #traffic-chart-legend.rounded-legend.legend-vertical.legend-bottom-left.pt-4
+        .row
+          .col-12.grid-margin
+            .card
+              .card-body
+                h4.card-title Recent Tickets
+                .table-responsive
+                  table.table
+                    thead
+                      tr
+                        th  Assignee 
+                        th  Subject 
+                        th  Status 
+                        th  Last Update 
+                        th  Tracking ID 
+                    tbody
+                      tr
+                        td
+                          img.mr-2(src='/assets/images/faces/face1.jpg', alt='image')
+                          |  David Grey
+                        td  Fund is not recieved 
+                        td
+                          label.badge.badge-gradient-success DONE
+                        td  Dec 5, 2017 
+                        td  WD-12345 
+                      tr
+                        td
+                          img.mr-2(src='/assets/images/faces/face2.jpg', alt='image')
+                          |  Stella Johnson
+                        td  High loading time 
+                        td
+                          label.badge.badge-gradient-warning PROGRESS
+                        td  Dec 12, 2017 
+                        td  WD-12346 
+                      tr
+                        td
+                          img.mr-2(src='/assets/images/faces/face3.jpg', alt='image')
+                          |  Marina Michel
+                        td  Website down for one week 
+                        td
+                          label.badge.badge-gradient-info ON HOLD
+                        td  Dec 16, 2017 
+                        td  WD-12347 
+                      tr
+                        td
+                          img.mr-2(src='/assets/images/faces/face4.jpg', alt='image')
+                          |  John Doe
+                        td  Loosing control on server 
+                        td
+                          label.badge.badge-gradient-danger REJECTED
+                        td  Dec 3, 2017 
+                        td  WD-12348 
+        .row
+          .col-12.grid-margin.stretch-card
+            .card
+              .card-body
+                h4.card-title Recent Updates
+                .d-flex
+                  .d-flex.align-items-center.mr-4.text-muted.font-weight-light
+                    i.mdi.mdi-account-outline.icon-sm.mr-2
+                    span jack Menqu
+                  .d-flex.align-items-center.text-muted.font-weight-light
+                    i.mdi.mdi-clock.icon-sm.mr-2
+                    span October 3rd, 2018
+                .row.mt-3
+                  .col-6.pr-1
+                    img.mb-2.mw-100.w-100.rounded(src='/assets/images/dashboard/img_1.jpg', alt='image')
+                    img.mw-100.w-100.rounded(src='/assets/images/dashboard/img_4.jpg', alt='image')
+                  .col-6.pl-1
+                    img.mb-2.mw-100.w-100.rounded(src='/assets/images/dashboard/img_2.jpg', alt='image')
+                    img.mw-100.w-100.rounded(src='/assets/images/dashboard/img_3.jpg', alt='image')
+                .d-flex.mt-5.align-items-top
+                  img.img-sm.rounded-circle.mr-3(src='/assets/images/faces/face3.jpg', alt='image')
+                  .mb-0.flex-grow
+                    h5.mr-2.mb-2 School Website - Authentication Module.
+                    p.mb-0.font-weight-light
+                      | It is a long established fact that a reader will be distracted by the readable content of a page.
+                  .ml-auto
+                    i.mdi.mdi-heart-outline.text-muted
+        .row
+          .col-md-7.grid-margin.stretch-card
+            .card
+              .card-body
+                h4.card-title Project Status
+                .table-responsive
+                  table.table
+                    thead
+                      tr
+                        th  # 
+                        th  Name 
+                        th  Due Date 
+                        th  Progress 
+                    tbody
+                      tr
+                        td  1 
+                        td  Herman Beck 
+                        td  May 15, 2015 
+                        td
+                          .progress
+                            .progress-bar.bg-gradient-success(role='progressbar', style='width: 25%', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
+                      tr
+                        td  2 
+                        td  Messsy Adam 
+                        td  Jul 01, 2015 
+                        td
+                          .progress
+                            .progress-bar.bg-gradient-danger(role='progressbar', style='width: 75%', aria-valuenow='75', aria-valuemin='0', aria-valuemax='100')
+                      tr
+                        td  3 
+                        td  John Richards 
+                        td  Apr 12, 2015 
+                        td
+                          .progress
+                            .progress-bar.bg-gradient-warning(role='progressbar', style='width: 90%', aria-valuenow='90', aria-valuemin='0', aria-valuemax='100')
+                      tr
+                        td  4 
+                        td  Peter Meggik 
+                        td  May 15, 2015 
+                        td
+                          .progress
+                            .progress-bar.bg-gradient-primary(role='progressbar', style='width: 50%', aria-valuenow='50', aria-valuemin='0', aria-valuemax='100')
+                      tr
+                        td  5 
+                        td  Edward 
+                        td  May 03, 2015 
+                        td
+                          .progress
+                            .progress-bar.bg-gradient-danger(role='progressbar', style='width: 35%', aria-valuenow='35', aria-valuemin='0', aria-valuemax='100')
+                      tr
+                        td  5 
+                        td  Ronald 
+                        td  Jun 05, 2015 
+                        td
+                          .progress
+                            .progress-bar.bg-gradient-info(role='progressbar', style='width: 65%', aria-valuenow='65', aria-valuemin='0', aria-valuemax='100')
+          .col-md-5.grid-margin.stretch-card
+            .card
+              .card-body
+                h4.card-title.text-white Todo
+                .add-items.d-flex
+                  input.form-control.todo-list-input(type='text', placeholder='What do you need to do today?')
+                  button#add-task.add.btn.btn-gradient-primary.font-weight-bold.todo-list-add-btn Add
+                .list-wrapper
+                  ul.d-flex.flex-column-reverse.todo-list.todo-list-custom
+                    li
+                      .form-check
+                        label.form-check-label
+                          input.checkbox(type='checkbox')
+                          |  Meeting with Alisa
+                      i.remove.mdi.mdi-close-circle-outline
+                    li.completed
+                      .form-check
+                        label.form-check-label
+                          input.checkbox(type='checkbox', checked='')
+                          |  Call John
+                      i.remove.mdi.mdi-close-circle-outline
+                    li
+                      .form-check
+                        label.form-check-label
+                          input.checkbox(type='checkbox')
+                          |  Create invoice
+                      i.remove.mdi.mdi-close-circle-outline
+                    li
+                      .form-check
+                        label.form-check-label
+                          input.checkbox(type='checkbox')
+                          |  Print Statements
+                      i.remove.mdi.mdi-close-circle-outline
+                    li.completed
+                      .form-check
+                        label.form-check-label
+                          input.checkbox(type='checkbox', checked='')
+                          |  Prepare for presentation
+                      i.remove.mdi.mdi-close-circle-outline
+                    li
+                      .form-check
+                        label.form-check-label
+                          input.checkbox(type='checkbox')
+                          |  Pick up kids from school
+                      i.remove.mdi.mdi-close-circle-outline
+      // content-wrapper ends
+      // partial:partials/_footer.html      
+      include layouts/footer.pug
+      // partial
+    // main-panel ends
+  // page-body-wrapper ends
+// container-scroller
+include layouts/plugins.pug

@@ -1,0 +1,32 @@
+include layouts/header.pug
+.container-scroller
+  .container-fluid.page-body-wrapper.full-page-wrapper
+    .content-wrapper.d-flex.align-items-center.auth
+      .row.flex-grow
+        .col-lg-4.mx-auto
+          .auth-form-light.text-left.p-5
+            .brand-logo
+              img(src='/assets/images/logo.svg')            
+            h4 Hello! let&apos;s get started
+            h6.font-weight-light Sign in to continue.
+            span(style='color: red;') #{error}
+            form.pt-3(method='post' action="/authentication/login")
+              .form-group
+                input#username.form-control.form-control-lg(type='text' name='username' placeholder='Username')
+                span(style='color:red;')
+              .form-group
+                input#password.form-control.form-control-lg(type='password' name='password' placeholder='Password')
+                span(style='color:red;')
+              span(style='color:red;')
+              .mt-3
+                button.btn.btn-block.btn-gradient-primary.btn-lg.font-weight-medium.auth-form-btn(type='submit') SIGN IN
+              .my-2.d-flex.justify-content-between.align-items-center
+                .form-check
+                  label.form-check-label.text-muted
+                    input.form-check-input(type='checkbox')
+                    |  Keep me signed in
+                a.auth-link.text-black(href='#') Forgot password?
+    // content-wrapper ends
+  // page-body-wrapper ends
+// container-scroller
+include layouts/plugins.pug

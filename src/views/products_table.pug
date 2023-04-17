@@ -1,0 +1,53 @@
+include layouts/header.pug
+.container-scroller
+  // partial:../../partials/_navbar.html
+  include layouts/navbar.pug
+  // partial
+  .container-fluid.page-body-wrapper
+    // partial:../../partials/_sidebar.html
+    include layouts/sidebar.pug
+    .main-panel
+        .content-wrapper
+            .page-header
+                h3.page-title  Products Tables 
+                nav(aria-label='breadcrumb')
+                    ol.breadcrumb              
+                    li.breadcrumb-item.active(aria-current='page') / Products tables
+            .row
+                .col-lg-12.grid-margin.stretch-card
+                    .card
+                        .card-body
+                            h4.card-title Products Table
+                            table.table
+                                thead
+                                    tr
+                                    th Title
+                                    th Price.
+                                    th Stock
+                                    th Status
+                                    th Seo Fields
+                                    th Action
+                                tbody
+                                each val in all_products
+                                    tr 
+                                    td #{val.title}
+                                    td #{val.price}
+                                    td #{val.qty}
+                                    td
+                                        label.badge.badge-danger= (val.status == 'active')? 'active':'inactive'
+                                    td                                    
+                                      a(href='/products/seo/' + val._id)
+                                        button.btn.btn-gradient-primary.btn-rounded.btn-fw(type='button') SEO
+                                    td
+                                        a(href='/products/edit/' + val._id)
+                                          i.mdi.mdi-tooltip-edit
+                                        a(href='/products/delete/' + val._id)
+                                          i.mdi.mdi-delete
+        // content-wrapper ends
+        // partial:partials/_footer.html 
+        include layouts/footer.pug
+            // partial      
+            // main-panel ends
+            // page-body-wrapper ends
+        // container-scroller
+        include layouts/plugins.pug

@@ -1,0 +1,56 @@
+include layouts/header.pug
+style.
+  .error{
+    color: red;
+  }
+
+.container-scroller
+  // partial:../../partials/_navbar.html
+  include layouts/navbar.pug
+  // partial
+  .container-fluid.page-body-wrapper
+    // partial:../../partials/_sidebar.html
+    include layouts/sidebar.pug
+    // partial
+    .main-panel
+      .content-wrapper
+        .page-header
+          h3.page-title  Categories Table 
+          nav(aria-label='breadcrumb')
+            ol.breadcrumb
+              li.breadcrumb-item.active(aria-current='page') Categories table
+        .row
+          .col-lg-12.grid-margin.stretch-card
+            .card
+              .card-body
+                h4.card-title Categories Table
+                p.card-description(align="center" style="color:white;background-color: red;") #{error}
+                table.table
+                  thead
+                    tr
+                      th Category name
+                      th Status
+                      th Seo Fields
+                      th Action
+                  tbody
+                  each val in all_categories  
+                    tr
+                      td
+                        a(href= '')= val.title 
+                      td= val.status
+                      td
+                        a(href= 'category/seo/' + val._id)
+                          button.btn.btn-gradient-primary.btn-rounded.btn-fw(type='button') SEO
+                      td
+                        a(href= 'category/edit/' + val._id)
+                          i.mdi.mdi-tooltip-edit
+                        a(href= 'category/delete/' + val._id)
+                          i.mdi.mdi-delete
+      // content-wrapper ends
+      // partial:../../partials/_footer.html
+      include layouts/footer.pug
+      // partial
+    // main-panel ends
+  // page-body-wrapper ends
+// container-scroller
+include layouts/plugins.pug
